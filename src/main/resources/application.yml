@@ -1,0 +1,13 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    driver-class-name: org.sqlite.JDBC
+    url: jdbc:sqlite:F:\Program\2023 SE\2-Web-Crawler\storage_info.db
+    username:
+    password:
+  main:
+    allow-circular-references: true
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.v3lmelt.LuoguCrawlerBackend.entity

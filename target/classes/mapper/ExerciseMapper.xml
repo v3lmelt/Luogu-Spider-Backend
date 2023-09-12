@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.v3lmelt.LuoguCrawlerBackend.dao.ExerciseDAO">
+
+    <select id="FindBySearch" resultType="com.v3lmelt.LuoguCrawlerBackend.entity.ExerciseEntity">
+        select * from exercise
+        <where>
+            <if test="param != null and param.exercise_id != null and param.exercise != ''">
+                and exercise_id like concat('%', #{param.exercise_id}, '%')
+            </if>
+
+            <if test="param != null and param.tags != null and param.tags != ''">
+                and tags like concat('%', #{param.tags}, '%')
+            </if>
+
+            <if test="param != null and param.difficulty != null and param.difficulty != ''">
+                and difficulty like concat('%', #{param.difficulty}, '%')
+            </if>
+
+            <if test="param != null and param.title != null and param.title != ''">
+                and title like concat('%', #{param.title}, '%')
+            </if>
+        </where>
+    </select>
+
+</mapper>
