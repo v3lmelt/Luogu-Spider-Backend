@@ -24,11 +24,9 @@ public class ExerciseService {
         return PageInfo.of(list);
     }
 
-    public List<ExerciseEntity> GetAllExercise() {
-        return _exerciseDAO.selectAll();
-    }
 
     public ExerciseEntity GetExerciseByID(Integer id){
         return _exerciseDAO.selectByPrimaryKey(id);
     }
+
 }

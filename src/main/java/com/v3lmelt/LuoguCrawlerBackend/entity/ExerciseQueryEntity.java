@@ -5,8 +5,6 @@ public class ExerciseQueryEntity {
     private String tags;
     private String difficulty;
     private String title;
-    private String exercise_path;
-    private String solution_path;
     public Integer pageSize;
     public Integer pageNum;
     public ExerciseQueryEntity(String exercise_id, String tags, String difficulty, String title, String exercise_path, String solution_path, Integer pageSize, Integer pageNum) {
@@ -14,8 +12,6 @@ public class ExerciseQueryEntity {
         this.tags = tags;
         this.difficulty = difficulty;
         this.title = title;
-        this.exercise_path = exercise_path;
-        this.solution_path = solution_path;
         this.pageSize = pageSize;
         this.pageNum = pageNum;
     }
@@ -66,21 +62,5 @@ public class ExerciseQueryEntity {
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public String getExercise_path() {
-        return exercise_path;
-    }
-
-    public void setExercise_path(String exercise_path) {
-        this.exercise_path = exercise_path;
-    }
-
-    public String getSolution_path() {
-        return solution_path;
-    }
-
-    public void setSolution_path(String solution_path) {
-        this.solution_path = solution_path;
     }
 }

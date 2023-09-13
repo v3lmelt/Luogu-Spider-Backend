@@ -17,13 +17,18 @@ public class ExerciseEntity {
     private String exercise_path;
     private String solution_path;
 
-    public ExerciseEntity(String exercise_id, String tags, String difficulty, String title, String exercise_path, String solution_path) {
+    private String exercise_author;
+    private String solution_author;
+
+    public ExerciseEntity(String exercise_id, String tags, String difficulty, String title, String exercise_path, String solution_path, String exercise_author, String solution_author) {
         this.exercise_id = exercise_id;
         this.tags = tags;
         this.difficulty = difficulty;
         this.title = title;
         this.exercise_path = exercise_path;
         this.solution_path = solution_path;
+        this.exercise_author = exercise_author;
+        this.solution_author = solution_author;
     }
 
     public String getExercise_id() {
@@ -64,6 +69,22 @@ public class ExerciseEntity {
 
     public void setExercise_path(String exercise_path) {
         this.exercise_path = exercise_path;
+    }
+
+    public String getExercise_author() {
+        return exercise_author;
+    }
+
+    public void setExercise_author(String exercise_author) {
+        this.exercise_author = exercise_author;
+    }
+
+    public String getSolution_author() {
+        return solution_author;
+    }
+
+    public void setSolution_author(String solution_author) {
+        this.solution_author = solution_author;
     }
 
     public String getSolution_path() {

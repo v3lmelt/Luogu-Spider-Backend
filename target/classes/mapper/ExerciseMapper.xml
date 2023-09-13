@@ -3,24 +3,28 @@
 <mapper namespace="com.v3lmelt.LuoguCrawlerBackend.dao.ExerciseDAO">
 
     <select id="FindBySearch" resultType="com.v3lmelt.LuoguCrawlerBackend.entity.ExerciseEntity">
-        select * from exercise
-        <where>
-            <if test="param != null and param.exercise_id != null and param.exercise != ''">
-                and exercise_id like concat('%', #{param.exercise_id}, '%')
-            </if>
+        SELECT * FROM exercise
+        WHERE 1=1
+        <if test="param != null and param.exercise_id != null and param.exercise_id != ''">
+            AND exercise_id LIKE '%' || #{param.exercise_id} || '%'
+        </if>
 
-            <if test="param != null and param.tags != null and param.tags != ''">
-                and tags like concat('%', #{param.tags}, '%')
-            </if>
+        <!-- 检查 param.tags 是否不为null，然后执行模糊搜索 -->
+        <if test="param != null and param.tags != null and param.tags != ''">
+            AND (
+            <foreach item="tag" collection="param.tags.split(',')" open="(" close=")" separator=" AND ">
+                tags LIKE '%' || #{tag} || '%'
+            </foreach>
+            )
+        </if>
 
-            <if test="param != null and param.difficulty != null and param.difficulty != ''">
-                and difficulty like concat('%', #{param.difficulty}, '%')
-            </if>
+        <if test="param != null and param.difficulty != null and param.difficulty != ''">
+            AND difficulty LIKE '%' || #{param.difficulty} || '%'
+        </if>
 
-            <if test="param != null and param.title != null and param.title != ''">
-                and title like concat('%', #{param.title}, '%')
-            </if>
-        </where>
+        <if test="param != null and param.title != null and param.title != ''">
+            AND title LIKE '%' || #{param.title} || '%'
+        </if>
     </select>
 
 </mapper>

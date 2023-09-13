@@ -5,10 +5,7 @@ import com.v3lmelt.LuoguCrawlerBackend.common.Result;
 import com.v3lmelt.LuoguCrawlerBackend.entity.ExerciseEntity;
 import com.v3lmelt.LuoguCrawlerBackend.entity.ExerciseQueryEntity;
 import com.v3lmelt.LuoguCrawlerBackend.service.ExerciseService;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
@@ -24,9 +21,9 @@ public class ExerciseController {
         return Result.success(_ExerciseService.FindBySearch(param));
     }
 
-    @GetMapping("/get-all")
-    public Result GetAllExercise(){
-        return Result.success(_ExerciseService.GetAllExercise());
+    @GetMapping("/search/{ID}")
+    public Result FindByID(@PathVariable Integer ID){
+        return Result.success(_ExerciseService.GetExerciseByID(ID));
     }
 
 }
