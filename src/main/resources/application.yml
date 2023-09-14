@@ -1,9 +1,13 @@
 server:
-  port: 8080
+  port: 25532
 spring:
+  auto:
+    openurl: true
+  web:
+    loginurl: http://localhost:25532
   datasource:
     driver-class-name: org.sqlite.JDBC
-    url: jdbc:sqlite:F:\Program\2023 SE\2-Web-Crawler\storage_info.db
+    url: jdbc:sqlite:storage_info.db
     username:
     password:
   main:
