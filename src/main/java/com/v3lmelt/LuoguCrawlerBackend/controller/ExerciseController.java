@@ -22,7 +22,7 @@ public class ExerciseController {
     }
 
     @GetMapping("/search/{ID}")
-    public Result FindByID(@PathVariable Integer ID){
+    public Result FindByID(@PathVariable String ID){
         return Result.success(_ExerciseService.GetExerciseByID(ID));
     }
 

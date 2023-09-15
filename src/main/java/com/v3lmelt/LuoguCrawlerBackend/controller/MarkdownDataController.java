@@ -16,7 +16,7 @@ public class MarkdownDataController {
     private MarkdownDataService _markdownDataService;
 
     @GetMapping("/{id}")
-    public Result GetMarkdownDataByID(@PathVariable Integer id) throws IOException {
+    public Result GetMarkdownDataByID(@PathVariable String id) throws IOException {
         return Result.success(_markdownDataService.GetMarkdownDataByID(id));
     }
 }

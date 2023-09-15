@@ -25,7 +25,7 @@ public class ExerciseService {
     }
 
 
-    public ExerciseEntity GetExerciseByID(Integer id){
+    public ExerciseEntity GetExerciseByID(String id){
         return _exerciseDAO.selectByPrimaryKey(id);
     }
 

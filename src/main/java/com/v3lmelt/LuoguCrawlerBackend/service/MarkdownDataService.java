@@ -20,7 +20,7 @@ public class MarkdownDataService {
         return content;
     }
 
-    public MarkdownDataEntity GetMarkdownDataByID(Integer id) throws IOException {
+    public MarkdownDataEntity GetMarkdownDataByID(String id) throws IOException {
         // 首先先拿到id对应的Exercise对象
         ExerciseEntity t = _exerciseService.GetExerciseByID(id);
         // 从后台中读取数据并封装
